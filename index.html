@@ -1,423 +1,212 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tips Interior - Ruangan Kecil Jadi Cantik dan Fungsional</title>
+    <title>Login Page</title>
     <style>
-      /* Reset default margin and padding */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* Body and main layout */
+      /* CSS Styles */
       body {
-        font-family: "Roboto", sans-serif;
-        background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
-        background-size: 400% 400%;
-        animation: gradientAnimation 15s ease infinite;
-        color: #333;
-        line-height: 1.6;
-        font-size: 16px;
-      }
-
-      /* Header */
-      header {
+        margin: 0;
+        font-family: Arial, sans-serif;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease;
+        height: 100vh;
+        background: linear-gradient(to bottom, #b2dfdb, #00796b);
       }
 
-      header .logo h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 36px;
-        color: #333;
-      }
-
-      header nav ul {
+      .login-container {
         display: flex;
-        list-style: none;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
       }
 
-      header nav ul li {
-        margin-left: 20px;
-        position: relative;
-      }
-
-      header nav ul li a {
-        text-decoration: none;
-        color: #333;
-        font-weight: bold;
-        font-size: 18px;
-        transition: color 0.3s ease, transform 0.3s ease;
-      }
-
-      header nav ul li a:hover {
-        color: #b2ebf2;
-        transform: scale(1.1);
-      }
-
-      /* Hero Section */
-      .hero {
-        text-align: center;
-        padding: 80px 20px;
-        background-color: #ffffff;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .hero h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 40px;
-        margin-bottom: 15px;
-        color: #333;
-        animation: fadeInUp 1s ease-in-out;
-      }
-
-      .hero p {
-        font-size: 18px;
-        margin-bottom: 30px;
-        color: #555;
-        animation: fadeInUp 1.5s ease-in-out;
-      }
-
-      /* Gallery Section */
-      .gallery {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        padding: 20px;
-      }
-
-      .gallery img {
-        width: 33%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .gallery img:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      }
-
-      /* Main Content */
-      main {
-        padding: 40px 20px;
-      }
-
-      .articles {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        animation: fadeInUp 2s ease-in-out;
-      }
-
-      .articles article {
-        background-color: #fff;
+      .login-box {
+        background: #fff;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .articles article:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .articles article h3 {
-        font-family: "Playfair Display", serif;
-        font-size: 24px;
-        margin-bottom: 10px;
-        transition: color 0.3s ease;
-      }
-
-      .articles article h3:hover {
-        color: #00796b;
-      }
-
-      .articles article a {
-        text-decoration: none;
-        color: #00796b;
-        font-weight: bold;
-        margin-top: 10px;
-        display: inline-block;
-        transition: color 0.3s ease;
-      }
-
-      .articles article a:hover {
-        color: #004d40;
-      }
-      body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
-        color: #333;
-      }
-      header {
-        background: #00796b;
-        color: #fff;
-        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
         text-align: center;
       }
-      main {
-        padding: 20px;
-      }
-      section {
+
+      .login-box h2 {
         margin-bottom: 20px;
-        padding: 20px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 24px;
+        color: #333;
       }
-      button {
-        padding: 10px 20px;
-        background: #00796b;
+
+      .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .input-group label {
+        display: block;
+        font-size: 14px;
+        color: #00796b;
+        margin-bottom: 5px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-bottom: 15px;
+      }
+
+      .forgot-password a {
+        font-size: 12px;
+        color: #00796b;
+        text-decoration: none;
+      }
+
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+
+      .login-button {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(to right, #b2dfdb, #00796b);
         color: #fff;
         border: none;
         border-radius: 5px;
+        font-size: 16px;
         cursor: pointer;
       }
-      button:hover {
-        background: #004d40;
-      }
-      input,
-      textarea {
-        width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+
+      .login-button:hover {
+        background: linear-gradient(to right, #80cbc4, #004d40);
       }
 
-      /* Footer */
-      footer {
-        background-color: #00796b;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-        transition: background-color 0.3s ease;
+      .register-link {
+        margin-top: 15px;
       }
 
-      footer .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
+      .register-link p {
+        font-size: 14px;
+        color: #666;
       }
 
-      footer .social-media a {
+      .register-link a {
+        color: #00796b;
         text-decoration: none;
-        color: #fff;
-        margin: 0 15px;
-        font-size: 18px;
-        transition: color 0.3s ease;
       }
 
-      footer .social-media a:hover {
-        color: #b2dfdb;
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes gradientAnimation {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      /* Media Queries */
-      @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        header nav ul {
-          flex-direction: column;
-          margin-top: 10px;
-        }
-
-        .hero h2 {
-          font-size: 28px;
-        }
-
-        .gallery {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .gallery img {
-          width: 80%;
-          margin-bottom: 20px;
-        }
-
-        .articles {
-          grid-template-columns: 1fr;
-        }
-
-        footer .social-media {
-          display: flex;
-          justify-content: center;
-        }
+      .register-link a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <!-- Header -->
-    <header>
-      <div class="logo">
-        <h1>InteriorKita</h1>
+    <div class="login-container">
+      <div class="login-box">
+        <h2>LOGIN</h2>
+        <form>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" />
+          </div>
+          <div class="forgot-password">
+            <a href="#">Lupa password?</a>
+          </div>
+          <button type="submit" class="login-button">LOGIN</button>
+          <div class="register-link">
+            <p>Belum punya akun? <a href="/register.html">Daftar</a></p>
+          </div>
+        </form>
       </div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Tips</a></li>
-          <li><a href="#">Galeri</a></li>
-          <li><a href="#">Kontak</a></li>
-        </ul>
-      </nav>
-    </header>
+    </div>
+    <script>
+      // Handle login form submission
+      const tombolSubmit = document.querySelector(".login-button");
+      tombolSubmit.addEventListener("click", async (e) => {
+        e.preventDefault(); // Prevent form from reloading the page
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <h2>Transformasi Ruang Kecil Menjadi Lebih Berguna dan Cantik</h2>
-      <p>
-        Pelajari cara mendekorasi ruangan kecil dengan tips-tips sederhana namun
-        efektif.
-      </p>
-      <!-- Gallery Section for Hero -->
-      <div class="gallery">
-        <img src="ing.jpeg" alt="Interior 1" />
-        <img src="liv.png" alt="Interior 2" />
-        <img src="space.jpeg" alt="Interior 3" />
-      </div>
-    </section>
+        const email = document.getElementById("email")?.value;
+        const password = document.getElementById("password")?.value;
 
-    <!-- Main Content -->
-    <main>
-      <section class="articles">
-        <article>
-          <h3>Tips Memilih Furniture Multifungsi</h3>
-          <p>
-            Gunakan furniture yang dapat memiliki lebih dari satu fungsi,
-            seperti sofa yang bisa menjadi tempat tidur atau meja yang bisa
-            dilipat.
-          </p>
-          <a href="#">Baca selengkapnya</a>
-        </article>
+        // Validasi input
+        if (!email || !password) {
+          alert("Email and password are required.");
+          return;
+        }
+        window.location.href = "/blog.html";
+        try {
+          const response = await fetch("https://primdev.alwaysdata.net/api", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              email: email,
+              password: password,
+            }),
+          });
 
-        <article>
-          <h3>Warna Terang untuk Ruang Kecil</h3>
-          <p>
-            Warna-warna terang seperti putih atau pastel dapat membuat ruangan
-            terlihat lebih luas dan lapang.
-          </p>
-          <a href="#">Baca selengkapnya</a>
-        </article>
+          if (!response.ok) {
+            throw new Error("Login failed. Please check your credentials.");
+          }
 
-        <article>
-          <h3>Tips Pencahayaan untuk Ruangan Kecil</h3>
-          <p>
-            Pencahayaan yang tepat dapat membuat ruangan kecil terasa lebih
-            hangat dan terbuka.
-          </p>
-          <a href="#">Baca selengkapnya</a>
-        </article>
-      </section>
-    </main>
+          const data = await response.json();
+          alert("Login successful! Token: " + data.token);
 
-    <!-- Blog List Section -->
-    <section id="blog-list-section">
-      <h2>Daftar Blog</h2>
-      <div id="blog-list">
-        <!-- Blog posts akan dimuat di sini -->
-      </div>
-    </section>
+          // Redirect to the blog page or save token as needed
+          window.location.href = "/blog.html"; // Example redirect
+        } catch (error) {
+          alert(error.message);
+        }
+      });
 
-    <!-- Blog Actions Section -->
-    <section id="blog-actions">
-      <h2>Create Blog</h2>
-      <form id="add-blog-form">
-        <input type="text" id="add-blog-title" placeholder="Title" required />
-        <textarea
-          id="add-blog-content"
-          placeholder="Content"
-          required
-        ></textarea>
-        <button type="submit">Create</button>
-      </form>
+      // document
+      //   .getElementById("loginForm")
+      //   .addEventListener("submit", async function (event) {
+      //     console.log("halo");
+      //     event.preventDefault(); // Prevent form from reloading the page
 
-      <h2>Update Blog</h2>
-      <form id="update-blog-form">
-        <input
-          type="number"
-          id="update-blog-id"
-          placeholder="Blog ID"
-          required
-        />
-        <input
-          type="text"
-          id="update-blog-title"
-          placeholder="New Title"
-          required
-        />
-        <textarea
-          id="update-blog-content"
-          placeholder="New Content"
-          required
-        ></textarea>
-        <button type="submit">Update</button>
-      </form>
+      //     const email = document.getElementById("email").value;
+      //     const password = document.getElementById("password").value;
 
-      <h2>Delete Blog</h2>
-      <form id="delete-blog-form">
-        <input
-          type="number"
-          id="delete-blog-id"
-          placeholder="Blog ID"
-          required
-        />
-        <button type="submit">Delete</button>
-      </form>
-    </section>
+      //     try {
+      //       const response = await fetch("https://primdev.alwaysdata.net/api", {
+      //         method: "POST",
+      //         headers: {
+      //           Accept: "application/json",
+      //           "Content-Type": "application/x-www-form-urlencoded",
+      //         },
+      //         body: new URLSearchParams({
+      //           email: email,
+      //           password: password,
+      //         }),
+      //       });
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 InteriorKita. Semua hak cipta dilindungi.</p>
-        <div class="social-media">
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">Twitter</a>
-        </div>
-      </div>
-    </footer>
-    <script src="script.js"></script>
+      //       if (!response.ok) {
+      //         throw new Error("Login failed. Please check your credentials.");
+      //       }
+
+      //       const data = await response.json();
+      //       alert("Login successful! Token: " + data.token);
+
+      //       // Redirect to the blog page or save token as needed
+      //       window.location.href = "/blog.html"; // Example redirect
+      //     } catch (error) {
+      //       alert(error.message);
+      //     }
+      //   });
+    </script>
   </body>
 </html>
