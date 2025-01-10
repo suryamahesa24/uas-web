@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Page</title>
+    <style>
+      /* CSS Styles */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to bottom, #b2dfdb, #00796b);
+      }
+
+      .register-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .register-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+      }
+
+      .register-box h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .input-group label {
+        display: block;
+        font-size: 14px;
+        color: #00796b;
+        margin-bottom: 5px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      .register-button {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(to right, #b2dfdb, #00796b);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .register-button:hover {
+        background: linear-gradient(to right, #80cbc4, #004d40);
+      }
+
+      .login-link {
+        margin-top: 15px;
+      }
+
+      .login-link p {
+        font-size: 14px;
+        color: #666;
+      }
+
+      .login-link a {
+        color: #00796b;
+        text-decoration: none;
+      }
+
+      .login-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="register-container">
+      <div class="register-box">
+        <h2>REGISTER</h2>
+        <form id="registerForm" method="post">
+          <div class="input-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="name"
+              required
+              name="name"
+            />
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email"
+              required
+              name="email"
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+              name="password"
+            />
+          </div>
+          <div class="input-group">
+            <label for="confirm-password">Ulangi Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="Ulangi Password"
+              required
+              name="confirm-password"
+            />
+          </div>
+          <button type="submit" class="register-button">REGISTER</button>
+          <div class="login-link">
+            <p>Sudah punya akun? <a href="/index.html">Login</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      // Base API URL
+      const API_BASE_URL = "https://primdev.alwaysdata.net/api";
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Prevent form from reloading the page
+
+          const email = document.getElementById("email").value;
+          const name = document.getElementById("name").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirm-password").value;
+          console.log(password);
+
+          // Validasi email menggunakan regex
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            alert("Email tidak valid.");
+            return;
+          }
+
+          // Validasi panjang password
+          if (password.length < 6) {
+            alert("Password harus memiliki minimal 6 karakter.");
+            return;
+          }
+
+          // Validasi passwords match
+          if (password !== confirmPassword) {
+            alert("Password dan Ulangi Password tidak cocok.");
+            return;
+          }
+
+          try {
+            const response = await fetch(`${API_BASE_URL}/register`, {
+              method: "POST",
+              headers: {
+                Accept: "application/json",
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: JSON.stringify({
+                name,
+                email,
+                password,
+                confirm_password: confirmPassword,
+              }),
+            });
+
+            if (!response.ok) {
+              throw new Error("Registrasi gagal. Silakan coba lagi.");
+            }
+
+            const data = await response.json();
+            alert("Registrasi berhasil! Silakan login.");
+
+            // Redirect to login page
+            window.location.href = "/index.html";
+          } catch (error) {
+            alert(error.message);
+            console.log(error);
+          }
+        });
+    </script>
+
+     
+  </body>
+</html>
